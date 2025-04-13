@@ -1,4 +1,5 @@
 import CSSModulesButton from '@/components/css-modules/button';
+import StyledComponentsButton from '@/components/styled-components/button';
 import TailwindButton from '@/components/tailwind/button';
 
 export default function Home() {
@@ -10,6 +11,9 @@ export default function Home() {
       <TailwindButton variant="primary" size="medium">
         Tailwind Button
       </TailwindButton>
+      <StyledComponentsButton variant="primary" size="medium">
+        Styled Components Button
+      </StyledComponentsButton>
     </div>
   );
 }
