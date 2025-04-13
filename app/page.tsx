@@ -1,10 +1,15 @@
 import CSSModulesButton from '@/components/css-modules/button';
+import TailwindButton from '@/components/tailwind/button';
+
 export default function Home() {
   return (
-    <div className="p-6">
-      <CSSModulesButton variant="primary" size="small">
+    <div className="flex gap-4 m-6">
+      <CSSModulesButton variant="primary" size="medium">
         CSS Modules Button
       </CSSModulesButton>
+      <TailwindButton variant="primary" size="medium">
+        Tailwind Button
+      </TailwindButton>
     </div>
   );
 }
