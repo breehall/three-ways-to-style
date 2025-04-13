@@ -1,0 +1,112 @@
+/* Base button styles */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  gap: 8px;
+  position: relative;
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 0 0 0 2px rgba(226, 118, 216, 0.4);
+}
+
+/* Variants */
+.primary {
+  background-color: #e276d8;
+  border-color: #e276d8;
+  color: black;
+}
+
+.primary:not(.disabled):hover {
+  background-color: #d665cc;
+  border-color: #d665cc;
+}
+
+.secondary {
+  background-color: #ffbbcb;
+  border-color: #ffbbcb;
+  color: black;
+}
+
+.secondary:not(.disabled):hover {
+  background-color: #ffadc0;
+  border-color: #ffadc0;
+}
+
+.empty {
+  background-color: transparent;
+  border-color: #e276d8;
+  color: #e276d8;
+  text-decoration: underline;
+}
+
+.empty:not(.disabled):hover {
+  background-color: rgba(226, 118, 216, 0.1);
+}
+
+/* Sizes */
+.small {
+  height: 24px;
+  font-size: 14px;
+  padding: 0 12px;
+}
+
+.medium {
+  height: 32px;
+  font-size: 16px;
+  padding: 0 16px;
+}
+
+/* States */
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.loading {
+  cursor: wait;
+  pointer-events: none;
+}
+
+/* Icon */
+.withIcon {
+  padding-left: 12px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Content */
+.content {
+  display: inline-block;
+  white-space: nowrap;
+}
