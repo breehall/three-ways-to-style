@@ -5,6 +5,7 @@ import StyledComponentsButton from '@/components/styled-components/button';
 import TailwindButton from '@/components/tailwind/button';
 import { useState } from 'react';
 import { ButtonVariant, ButtonSize } from '@/types/button';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export default function Home() {
   const [variant, setVariant] = useState<ButtonVariant>('primary');
@@ -12,6 +13,7 @@ export default function Home() {
   const [disabled, setDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
   const [withIcon, setWithIcon] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   return (
     <main className="min-h-screen p-10 flex flex-col items-center justify-center gap-8">
@@ -49,6 +51,7 @@ export default function Home() {
               { id: 'disabled', label: 'Disabled', setter: setDisabled },
               { id: 'loading', label: 'Loading', setter: setLoading },
               { id: 'withIcon', label: 'Show Icon', setter: setWithIcon },
+              { id: 'isDarkMode', label: 'Dark Mode', setter: toggleTheme },
             ].map(({ id, label, setter }) => (
               <li key={id}>
                 <label className="flex items-center gap-2 text-sm text-gray-700">

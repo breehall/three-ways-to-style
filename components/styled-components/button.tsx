@@ -13,41 +13,62 @@
 
 import styled, { css } from 'styled-components';
 import { ButtonProps, ButtonVariant, ButtonSize } from '@/types/button';
+import { DefaultTheme } from 'styled-components';
 
 /**
  * Get the variant styles for the button
  */
-const getVariantStyles = (variant: ButtonVariant) => {
+const getVariantStyles = (variant: ButtonVariant, theme: DefaultTheme) => {
   switch (variant) {
     case 'primary':
       return css`
-        background-color: #e276d8;
+        background-color: ${theme.colors.primary};
         color: black;
 
         &:hover:not(:disabled) {
-          background-color: color-mix(in srgb, #e276d8 50%, transparent);
-          border-color: color-mix(in srgb, #e276d8 50%, transparent);
+          background-color: color-mix(
+            in srgb,
+            ${theme.colors.primary} 50%,
+            transparent
+          );
+          border-color: color-mix(
+            in srgb,
+            ${theme.colors.primary} 50%,
+            transparent
+          );
         }
       `;
     case 'secondary':
       return css`
-        background-color: #ffbbcb;
+        background-color: ${theme.colors.secondary};
         color: black;
 
         &:hover:not(:disabled) {
-          background-color: color-mix(in srgb, #ffbbcb 50%, transparent);
-          border-color: color-mix(in srgb, #ffbbcb 50%, transparent);
+          background-color: color-mix(
+            in srgb,
+            ${theme.colors.secondary} 50%,
+            transparent
+          );
+          border-color: color-mix(
+            in srgb,
+            ${theme.colors.secondary} 50%,
+            transparent
+          );
         }
       `;
     case 'empty':
       return css`
         background-color: transparent;
-        color: #e276d8;
-        border: 1px solid #e276d8;
+        color: ${theme.colors.empty};
+        border: 1px solid ${theme.colors.empty};
         text-decoration: underline;
 
         &:hover:not(:disabled) {
-          background-color: rgba(226, 118, 216, 0.1);
+          background-color: color-mix(
+            in srgb,
+            ${theme.colors.empty} 10%,
+            transparent
+          );
         }
       `;
   }
@@ -83,7 +104,7 @@ const StyledButton = styled.button<ButtonProps>`
   transition: all 0.2s ease;
   gap: 8px;
 
-  ${(props) => getVariantStyles(props.variant || 'primary')}
+  ${(props) => getVariantStyles(props.variant || 'primary', props.theme)}
   ${(props) => getSizeStyles(props.size || 'medium')}
 
   &:active:not(:disabled) {
