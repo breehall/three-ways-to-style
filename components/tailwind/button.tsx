@@ -18,7 +18,7 @@ import { tv } from 'tailwind-variants';
  */
 const button = tv({
   base: [
-    'inline-flex items-center justify-center gap-2 font-medium rounded',
+    'inline-flex items-center justify-center gap-2  rounded',
     'relative transition-all duration-200 cursor-pointer',
     'focus-visible:shadow-[0_0_0_2px_rgba(226,118,216,0.4)]',
     'disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none',

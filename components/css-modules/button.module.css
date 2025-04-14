@@ -1,5 +1,8 @@
 /* Base button styles */
 .button {
+  --miami-pink: #e276d8;
+  --baby-pink: #ffbbcb;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -19,31 +22,27 @@
 
 /* Variants */
 .primary {
-  background-color: #e276d8;
-  border-color: #e276d8;
+  background-color: var(--miami-pink);
   color: black;
 }
 
 .primary:not(.disabled):hover {
-  background-color: #d665cc;
-  border-color: #d665cc;
+  background-color: color-mix(in srgb, var(--miami-pink) 50%, transparent);
 }
 
 .secondary {
-  background-color: #ffbbcb;
-  border-color: #ffbbcb;
+  background-color: var(--baby-pink);
   color: black;
 }
 
 .secondary:not(.disabled):hover {
-  background-color: #ffadc0;
-  border-color: #ffadc0;
+  background-color: color-mix(in srgb, var(--baby-pink) 50%, transparent);
 }
 
 .empty {
   background-color: transparent;
-  border-color: #e276d8;
-  color: #e276d8;
+  border-color: var(--miami-pink);
+  color: var(--miami-pink);
   text-decoration: underline;
 }
 

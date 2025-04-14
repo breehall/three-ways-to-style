@@ -23,13 +23,21 @@ const getVariantStyles = (variant: ButtonVariant) => {
       return css`
         background-color: #e276d8;
         color: black;
-        border: 1px solid #e276d8;
+
+        &:hover:not(:disabled) {
+          background-color: color-mix(in srgb, #e276d8 50%, transparent);
+          border-color: color-mix(in srgb, #e276d8 50%, transparent);
+        }
       `;
     case 'secondary':
       return css`
         background-color: #ffbbcb;
         color: black;
-        border: 1px solid #ffbbcb;
+
+        &:hover:not(:disabled) {
+          background-color: color-mix(in srgb, #ffbbcb 50%, transparent);
+          border-color: color-mix(in srgb, #ffbbcb 50%, transparent);
+        }
       `;
     case 'empty':
       return css`
@@ -37,6 +45,10 @@ const getVariantStyles = (variant: ButtonVariant) => {
         color: #e276d8;
         border: 1px solid #e276d8;
         text-decoration: underline;
+
+        &:hover:not(:disabled) {
+          background-color: rgba(226, 118, 216, 0.1);
+        }
       `;
   }
 };
@@ -74,10 +86,6 @@ const StyledButton = styled.button<ButtonProps>`
   ${(props) => getVariantStyles(props.variant || 'primary')}
   ${(props) => getSizeStyles(props.size || 'medium')}
 
-  &:hover:not(:disabled) {
-    filter: brightness(0.9);
-  }
-
   &:active:not(:disabled) {
     transform: scale(0.98);
   }
@@ -114,7 +122,6 @@ const StyledComponentsButton = ({
       onClick={onClick}
       {...props}
     >
-      {icon && icon}
       {loading ? (
         <LoadingSpinner
           width="16"
@@ -131,8 +138,9 @@ const StyledComponentsButton = ({
           />
         </LoadingSpinner>
       ) : (
-        children
+        icon && <span>{icon}</span>
       )}
+      <span>{children}</span>
     </StyledButton>
   );
 };
