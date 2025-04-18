@@ -1,4 +1,4 @@
-# React Styling Examples
+# Three Ways to Style
 
 This repository demonstrates different approaches to styling React components, including CSS Modules, Styled Components, and Tailwind CSS. Each implementation shows how to create and style a simple button component using these different methodologies.
 
