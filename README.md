@@ -27,7 +27,7 @@ This repository demonstrates different approaches to styling React components, i
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/breehall/three-ways-to-style
 ```
 
 2. Install dependencies:
